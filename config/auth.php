@@ -98,5 +98,18 @@ return [
             'expire' => 60,
         ],
     ],
-
+    'oauth' => [
+        'qq' => [
+        'id' => env('OAUTH_QQ_ID', ''),
+        'key' => env('OAUTH_QQ_KEY', ''),
+        ],
+        'weixin' => [
+        'id' => env('OAUTH_WEIXIN_ID', 'wxd02783804ce673b5'),
+        'key' => env('OAUTH_WEIXIN_KEY', ''),
+        ],
+        'weibo' => [
+        'id' => env('OAUTH_WEIBO_ID', ''),
+        'key' => env('OAUTH_WEIBO_KEY', ''),
+        ],
+    ]
 ];
