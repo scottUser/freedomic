@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Auth;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\OAuth as OAuthUser;
 use App\Utils\OAuth;
 
 class OAuthController extends Controller
@@ -51,7 +52,7 @@ class OAuthController extends Controller
   {
     $data = OAuth::getAuth('weixin');
 
-    $user = OAuth::firstOrCreate([
+    $user = OAuthUser::firstOrCreate([
       'openid' => $data['openId']
     ], [
       'openid' => $data['openId'],
