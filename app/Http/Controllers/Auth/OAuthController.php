@@ -41,4 +41,26 @@ class OAuthController extends Controller
 
     return OAuth::goPage($type);
   }
+
+  public function weixinPage()
+  {
+    return OAuth::goPage('weixin');
+  }
+
+  public function weixinLogin()
+  {
+    $data = OAuth::getAuth('weixin');
+
+    $user = OAuth::firstOrCreate([
+      'openid' => $data['openId']
+    ], [
+      'openid' => $data['openId'],
+      'avatar' => $data['avatar'],
+      'nickname' => $data['nickname']
+    ]);
+
+    \Auth::login($user);
+
+    return view('oauth.success', $data);
+  }
 }

@@ -48,7 +48,7 @@ class OAuth
   {
     $state = csrf_token();
 
-    $redirect = \Request::get('redirect_uri', url(env('API_PREFIX', '') . "/oauth/{$type}/login"));
+    $redirect = \Request::get('redirect_uri', url(env('API_PREFIX', '') . "/login"));
 
     $clientId = config("auth.oauth.{$type}.id");
 

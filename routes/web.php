@@ -13,10 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
-Route::group(['prefix' => 'oauth', 'namespace' => 'Auth'], function ($route) {
-    $route->get('/{type}/page', 'OAuthController@page');
-    $route->get('/{type}/info', 'OAuthController@info');
-    $route->get('/{type}/login', 'OAuthController@login');
-});
+Route::get('/page', 'Auth\OAuthController@weixinPage')->name('login');
+Route::get('/login', 'Auth\OAuthController@weixinLogin');
